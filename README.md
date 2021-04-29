@@ -6,4 +6,4 @@
 
 ## License
 
-MPL 2.0 - See [/LICENSE](LICENSE) file
+MPL 2.0 - See [LICENSE](LICENSE) file
