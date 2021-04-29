@@ -1,0 +1,25 @@
+mixin server(server, font)
+  if server
+    .col-12.col-lg-6
+      .card.s
+        if server.icon != null
+          img.rounded-circle.img-fluid(src=server.icon, alt, width="60px", height="60px")
+        else
+          p.rounded-circle.img-fluid.text-center(style="font-size: 30px; width: " + (server.nameAcronym.length*30 > 60 ? server.nameAcronym.length*30 : 60) + "px; height: 60px; padding: 5px; border: 2px solid #ffffff; margin-bottom: 0px;") !{server.nameAcronym}
+        h1.profile-h-h !{server.name}
+          if server.badge
+            p(style="margin: 0px")
+              span.badge.badge-primary.official(style="margin: 10px 0px; font-size: 35%; background-color: " + server.premiumData.badgeColor + "; color: " + server.premiumData.fontColorMain) &nbsp; !{server.badge} &nbsp;
+        .votes(style="font-size: " + (40+font) + "%;")
+          i.fas.fa-arrow-up
+          span.pl-1 !{server.votes}
+        p.script(style="font-size: " + font + "%;") 
+          | #{server.short_description}
+        .col-12
+          .row
+            a.btn.btn-danger(type="button", style="margin-right: 10px;", href=server.invite)
+              i.fas.fa-plus
+              span.pl-1 Dołącz
+            a.btn.btn-success(type="button", href="/s/" + server.uniqueId)
+              i.far.fa-eye
+              span.pl-1 Strona

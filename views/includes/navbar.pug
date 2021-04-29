@@ -1,0 +1,36 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href="/") Bestlist
+  button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarSupportedContent
+    ul.navbar-nav.mr-auto.dd
+      //- li.nav-item
+      //-   a.nav-link(href="#")
+      //-     i.far.fa-window-restore
+      //-     |   Panel
+      li.nav-item
+        a.nav-link(href="/servers")
+          i.far.fa-hdd
+          |   Serwery
+      li.nav-item
+        a.nav-link(href="/support")
+          i.far.fa-question-circle
+          |   Support
+  if user
+    form.my-2.my-lg-0
+      ul.navbar-nav.mr-auto.no-select
+        li.nav-item.dropdown.avatars
+          a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+            img.rounded-circle.nav-ava(src=user.avatarUrl(32), alt)
+          .dropdown-menu(aria-labelledby="navbarDropdown")
+            if user.admin
+              a.dropdown-item(href="/admin") Admin
+            a.dropdown-item(href="/dashboard") Dashboard
+            a.dropdown-item(href="/logout") Wyloguj się
+  else 
+    form.my-2.my-lg-0
+      ul.navbar-nav.mr-auto       
+        li.nav-item.dropdown
+          a.nav-link(href="/login")
+            i.fas.fa-sign-in-alt
+            span.pl-1 Login

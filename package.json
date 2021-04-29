@@ -1,0 +1,24 @@
+{
+  "name": "bestlist.pl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js dev",
+    "dev:watch": "nodemon --exec \"npm run dev\""
+  },
+  "keywords": [],
+  "author": "Diffuse Network",
+  "license": "MIT",
+  "dependencies": {
+    "cookies": "^0.8.0",
+    "disco-oauth": "^4.2.7",
+    "discord.js": "^12.5.0",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.27",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.0"
+  }
+}

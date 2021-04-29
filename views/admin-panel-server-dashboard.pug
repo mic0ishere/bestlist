@@ -1,0 +1,178 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
+link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+link(rel="stylesheet", href="/css/style.css")
+title Bestlist.pl | Panel
+link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/all.css", integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q", crossorigin="anonymous")
+if !guild
+  script.
+    location.reload()
+else
+  .app
+    include includes/navbar
+    include includes/admin-panel-server
+    .content
+      .row
+        .col-12.col-lg-4.mb-m
+          .card
+            if guild.icon && guild.icon != null
+              img.rounded-circle.img-fluid(src=guild.icon, alt, width="60px", height="60px")
+            else
+              p.rounded-circle.img-fluid.text-center(style="font-size: 30px; width: 60px; padding: 5px; border: 2px solid #ffffff; margin-bottom: 0px;") !{guild.nameAcronym}
+            h1.profile-h-h !{guild.name}
+            if guild.badge
+              p(style="margin: 0px")
+                span.badge.badge-primary.official(style="font-size: 100%; margin-bottom: 15px;") &nbsp; !{guild.badge} &nbsp;
+            p.profile-h-p !{guild.uniqueId.toLowerCase()}
+            a.btn.btn-success(type="button", href="/s/" + guild.uniqueId)
+              i.far.fa-eye
+              span.pl-1 Strona
+          .card.mt
+            | Zaufało nam: 
+            span.serv !{stats.guilds} serwerów
+            p i 
+              span.serv !{stats.users} użytkowników
+        .col-12.col-lg-8
+          .card
+            form(action='/admin-manage/' + guild.id + '/delete', method='GET', id="delete")
+            form(action='/admin-manage/' + guild.id + '/edit', method='GET')
+              h6
+              i.fas.fa-star-of-life
+              |    Opis serwera
+              p.script Tutaj podaj opis wyświetlany na stronie serwera
+                .form-group(style="position: relative;")
+                  textarea#long_input.form-control(style="resize: none;", type="text", name="description", placeholder="Wpisz opis...", rows="3", maxlength="250") #{guild.description}
+                  span.field_counter#long_span(style="left: 48vw; top: -4.5vh;")
+              h6
+                i.fas.fa-star-of-life
+                |    Krótki opis
+              p.script Krótki opis, widoczny na stronie serwerów
+                .form-group(style="position: relative;")
+                  input#short_input.form-control(type="text", name="short_description", placeholder="Wpisz opis...", value=guild.short_description, maxlength="50")
+                  span.field_counter#short_span(style="left: 48vw; top: -2.5vh;")
+              h6
+                i.fas.fa-star-of-life
+                |    Badge
+              p.script Zmiana tekstu pokazywanego jako badge
+                .form-group(style="position: relative;")
+                  input#badge_input.form-control(type="text", name="badge", placeholder="Wpisz opis...", value=guild.badge, maxlength="20")
+                  span.field_counter#badge_span(style="left: 48vw; top: -2.5vh;")
+              h6
+                i.fas.fa-star-of-life
+                |    Głosy
+              p.script Zmień liczbę głosów serwera
+                .form-group(style="position: relative;")
+                  input.form-control(type="number", name="votes", value=guild.votes)
+              h6
+                i.fas.fa-star-of-life
+                |    Widoczność serwera
+              p.script Możesz wyłączyć bądź włączyć widoczność strony serwera
+                .form-group
+                  label.switch
+                    if !guild.status
+                      input(type="checkbox", name='status')
+                    else
+                      input(type="checkbox", name='status', checked)
+                    span.slider.round
+                            h6
+                i.fas.fa-star-of-life
+                |    Serwer premium
+              p.script Zmiana statusu premium serwera 
+                .form-group
+                  label.switch
+                    if !guild.isPremium
+                      input(type="checkbox", name='premium')
+                    else
+                      input(type="checkbox", name='premium', checked)
+                    span.slider.round
+              br
+              h6
+                i.fas.fa-star-of-life
+                |    Kolor tła
+              //- Daj tekst zeby miec opis funkcji
+              p.script
+                .form-group
+                  input.form-control.input-color(type="color", name="backgroundColor", value=guild.premiumData.backgroundColor)
+              br
+              h6
+                i.fas.fa-star-of-life
+                |    Kolor Czcionki
+              //- Daj tekst zeby miec opis funkcji
+              p.script
+                .form-group
+                  input.form-control.input-color(type="color", name="fontColorMain", value=guild.premiumData.fontColorMain)
+              br
+              h6
+                i.fas.fa-star-of-life
+                |    Drugi kolor czcionki
+              //- Daj tekst zeby miec opis funkcji
+              p.script
+                .form-group
+                  input.form-control.input-color(type="color", name="fontColorSecond", value=guild.premiumData.fontColorSecond)
+              br
+              h6
+                i.fas.fa-star-of-life
+                |    Kolor przycisku
+              //- Daj tekst zeby miec opis funkcji
+              p.script
+                .form-group
+                  input.form-control.input-color(type="color", name="buttonColor", value=guild.premiumData.buttonColor)
+              br
+              h6
+                i.fas.fa-star-of-life
+                |    Kolor Badge
+              //- Daj tekst zeby miec opis funkcji
+              p.script
+                .form-group
+                  input.form-control.input-color(type="color", name="badgeColor", value=guild.premiumData.badgeColor)
+              button.btn.sub.btn-secondary(type="submit", style="margin-right: 20px; margin-bottom: 10px;") Zapisz
+              button.btn.sub.btn-secondary(type="reset", style="margin-right: 20px; margin-bottom: 10px;") Reset
+              button.btn.sub.btn-danger(type="submit", form="delete" style="margin-bottom: 10px;") Usuń serwer
+
+          .card
+            //- Add .md to .card -> have padding!
+            h6
+              i.far.fa-hdd
+              |    Lista serwerów
+            p.script Tutaj możesz zobaczyć listę serwerów
+            br
+            .row
+              each server in servers
+                +server(server)
+      .footer
+        | © 2021 
+        a.text-danger(href="/support" target="_blank") Diffuse Network
+    script.
+        const short_input = document.getElementById('short_input')
+        const short_counter = document.getElementById('short_span')
+        const short_maxLength = short_input.getAttribute('maxlength')
+        short_counter.innerText = short_maxLength - short_input.value.length
+        short_input.addEventListener('input', e => {
+          const short_valueLength = e.target.value.length
+          const short_leftCharLength = short_maxLength - short_valueLength
+          if(short_leftCharLength < 0) return;
+          short_counter.innerText = short_leftCharLength 
+        })
+        const long_input = document.getElementById('long_input')
+        const long_counter = document.getElementById('long_span')
+        const long_maxLength = long_input.getAttribute('maxlength')
+        long_counter.innerText = long_maxLength - long_input.value.length
+        long_input.addEventListener('input', e => {
+          const long_valueLength = e.target.value.length
+          const long_leftCharLength = long_maxLength - long_valueLength
+          if(long_leftCharLength < 0) return;
+          long_counter.innerText = long_leftCharLength 
+        })
+        const badge_input = document.getElementById('badge_input')
+        const badge_counter = document.getElementById('badge_span')
+        const badge_maxLength = badge_input.getAttribute('maxlength')
+        badge_counter.innerText = badge_maxLength - badge_input.value.length
+        badge_input.addEventListener('input', e => {
+          const badge_valueLength = e.target.value.length
+          const badge_leftCharLength = badge_maxLength - badge_valueLength
+          if(badge_leftCharLength < 0) return;
+          badge_counter.innerText = badge_leftCharLength 
+        })
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js", integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")

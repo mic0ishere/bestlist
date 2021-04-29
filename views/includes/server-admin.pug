@@ -1,0 +1,24 @@
+mixin server(server)
+  if !guild || guild.id != server.id
+    .col-12.col-lg-6
+      .card.s
+        if server.iconHash != null
+            img.rounded-circle.img-fluid(src=server.iconUrl(), alt, width="60px", height="60px")
+        else
+            - const nameAcronym = server.name.split(/\s/).reduce(function(accumulator, word) {return accumulator + word.charAt(0);}, '')
+            p.rounded-circle.img-fluid.text-center(style="font-size: 30px; width: " + (nameAcronym.length*30 > 60 ? nameAcronym.length*30 : 60) + "px; height: 60px; padding: 5px; border: 2px solid #ffffff; margin-bottom: 0px;") !{nameAcronym}
+        h1.profile-h-h !{server.name}
+        br
+        .col-12
+          .row
+            if userServers.includes(server.id)
+              a.btn.btn-secondary(type="button", style="margin-right: 10px;", href="/manage/" + server.id)
+                i.far.fa-edit
+                span.pl-1 Zarządzaj
+              a.btn.btn-success(type="button", href="/s/" + server.id)
+                i.far.fa-eye
+                span.pl-1 Strona
+            else
+              a.btn.btn-secondary(type="button", style="margin-right: 10px;", href="/invite")
+                i.fas.fa-plus
+                span.pl-1 Dodaj bota na serwer!

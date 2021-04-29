@@ -1,0 +1,9 @@
+{
+  "enviromentUrl": "http://localhost:4100",
+  "enviromentRedirectUrl": {
+    "production": "https://bestlist.pl",
+    "dev": "http://localhost:4100"
+  },
+  "port": 4100,
+  "admin": ["600045344784646195", "647194026935582761"]
+}
