@@ -1,9 +1,9 @@
 {
-  "enviromentUrl": "http://localhost:4100",
+  "enviromentUrl": "https://dislist.n3wbot.repl.co",
   "enviromentRedirectUrl": {
-    "production": "https://bestlist.pl",
-    "dev": "http://localhost:4100"
+    "production": "https://dislist.n3wbot.repl.co",
+    "dev": "https://dislist.n3wbot.repl.co"
   },
   "port": 4100,
-  "admin": ["600045344784646195", "647194026935582761"]
+  "admin": ["676195747904880690", "497100059985575946"]
 }

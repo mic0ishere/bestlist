@@ -14,11 +14,11 @@ mixin server(server)
             if userServers.includes(server.id)
               a.btn.btn-secondary(type="button", style="margin-right: 10px;", href="/manage/" + server.id)
                 i.far.fa-edit
-                span.pl-1 Zarządzaj
+                span.pl-1 Manage
               a.btn.btn-success(type="button", href="/s/" + server.id)
                 i.far.fa-eye
-                span.pl-1 Strona
+                span.pl-1 Page
             else
               a.btn.btn-secondary(type="button", style="margin-right: 10px;", href="/invite")
                 i.fas.fa-plus
-                span.pl-1 Dodaj bota na serwer!
+                span.pl-1 Add the bot to the server!

@@ -2,7 +2,7 @@ meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
 link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
 link(rel="stylesheet", href="/css/style.css")
-title Bestlist.pl | Panel
+title DisList.Me | Panel
 link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/all.css", integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q", crossorigin="anonymous")
 if !guild
   script.
@@ -26,47 +26,47 @@ else
             p.profile-h-p !{guild.uniqueId.toLowerCase()}
             a.btn.btn-success(type="button", href="/s/" + guild.uniqueId)
               i.far.fa-eye
-              span.pl-1 Strona
+              span.pl-1 Page
           .card.mt
-            | Zaufało nam: 
-            span.serv !{stats.guilds} serwerów
+            | They trusted us: 
+            span.serv !{stats.guilds} servers
             p i 
-              span.serv !{stats.users} użytkowników
+              span.serv !{stats.users} users
         .col-12.col-lg-8
           .card
             form(action='/admin-manage/' + guild.id + '/delete', method='GET', id="delete")
             form(action='/admin-manage/' + guild.id + '/edit', method='GET')
               h6
               i.fas.fa-star-of-life
-              |    Opis serwera
-              p.script Tutaj podaj opis wyświetlany na stronie serwera
+              |    Server description
+              p.script Enter the description displayed on the server page here
                 .form-group(style="position: relative;")
-                  textarea#long_input.form-control(style="resize: none;", type="text", name="description", placeholder="Wpisz opis...", rows="3", maxlength="250") #{guild.description}
+                  textarea#long_input.form-control(style="resize: none;", type="text", name="description", placeholder="Enter a description ...", rows="3", maxlength="250") #{guild.description}
                   span.field_counter#long_span(style="left: 48vw; top: -4.5vh;")
               h6
                 i.fas.fa-star-of-life
-                |    Krótki opis
-              p.script Krótki opis, widoczny na stronie serwerów
+                |    Short description
+              p.script Short description. (visible on the servers page)
                 .form-group(style="position: relative;")
-                  input#short_input.form-control(type="text", name="short_description", placeholder="Wpisz opis...", value=guild.short_description, maxlength="50")
+                  input#short_input.form-control(type="text", name="short_description", placeholder="Enter a description ...", value=guild.short_description, maxlength="50")
                   span.field_counter#short_span(style="left: 48vw; top: -2.5vh;")
               h6
                 i.fas.fa-star-of-life
                 |    Badge
-              p.script Zmiana tekstu pokazywanego jako badge
+              p.script Change the text shown as badge
                 .form-group(style="position: relative;")
-                  input#badge_input.form-control(type="text", name="badge", placeholder="Wpisz opis...", value=guild.badge, maxlength="20")
+                  input#badge_input.form-control(type="text", name="badge", placeholder="Enter a description ...", value=guild.badge, maxlength="20")
                   span.field_counter#badge_span(style="left: 48vw; top: -2.5vh;")
               h6
                 i.fas.fa-star-of-life
-                |    Głosy
-              p.script Zmień liczbę głosów serwera
+                |    Voices
+              p.script Change the number of server votes
                 .form-group(style="position: relative;")
                   input.form-control(type="number", name="votes", value=guild.votes)
               h6
                 i.fas.fa-star-of-life
-                |    Widoczność serwera
-              p.script Możesz wyłączyć bądź włączyć widoczność strony serwera
+                |    Server visibility
+              p.script You can disable or enable the visibility of the server side
                 .form-group
                   label.switch
                     if !guild.status
@@ -76,8 +76,8 @@ else
                     span.slider.round
                             h6
                 i.fas.fa-star-of-life
-                |    Serwer premium
-              p.script Zmiana statusu premium serwera 
+                |    Premium server
+              p.script Server premium status change 
                 .form-group
                   label.switch
                     if !guild.isPremium
@@ -88,7 +88,7 @@ else
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor tła
+                |    Background color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -96,7 +96,7 @@ else
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor Czcionki
+                |    Font color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -104,7 +104,7 @@ else
               br
               h6
                 i.fas.fa-star-of-life
-                |    Drugi kolor czcionki
+                |    Second font color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -112,7 +112,7 @@ else
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor przycisku
+                |    Button color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -120,12 +120,12 @@ else
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor Badge
+                |    Color Badge
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
                   input.form-control.input-color(type="color", name="badgeColor", value=guild.premiumData.badgeColor)
-              button.btn.sub.btn-secondary(type="submit", style="margin-right: 20px; margin-bottom: 10px;") Zapisz
+              button.btn.sub.btn-secondary(type="submit", style="margin-right: 20px; margin-bottom: 10px;") Save
               button.btn.sub.btn-secondary(type="reset", style="margin-right: 20px; margin-bottom: 10px;") Reset
               button.btn.sub.btn-danger(type="submit", form="delete" style="margin-bottom: 10px;") Usuń serwer
 
@@ -133,15 +133,15 @@ else
             //- Add .md to .card -> have padding!
             h6
               i.far.fa-hdd
-              |    Lista serwerów
-            p.script Tutaj możesz zobaczyć listę serwerów
+              |    Server list
+            p.script You can see the server list here
             br
             .row
               each server in servers
                 +server(server)
       .footer
         | © 2021 
-        a.text-danger(href="/support" target="_blank") Diffuse Network
+        a.text-danger(href="/support" target="_blank") Shopp.Monster Network
     script.
         const short_input = document.getElementById('short_input')
         const short_counter = document.getElementById('short_span')

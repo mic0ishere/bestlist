@@ -2,37 +2,37 @@ meta(charset="utf-8")
 meta(name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no")
 link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous")
 link(rel="stylesheet" href="/css/style.css")
-title Bestlist.pl
+title DisList.Me
 link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous")
 .app
   include includes/navbar
   include includes/server
   .card.index.mt(style="padding: 6% 10%")
     p(style="margin-bottom: 10px")
-      | Serwery premium
+      | Premium servers
     .row
       each server in servers
         +server(server, 40)
-    p.script(style="font-size: 40%") Znajdź się tutaj już dziś, kontaktując się z nami na serwerze 
+    p.script(style="font-size: 40%") Get here today by contacting us on the server 
       a(href="/support" style="color: #fa697f;") support
   .card.mt.index(style="padding: 7% 10%; align-items: center")
-    | Zaufało nam:
+    | We have been trusted by:
     div(style="margin-top: 20px; flex-direction: row; display: flex; flex-wrap: wrap")
       div()
         i.fas.fa-database
         span.serv(style="margin-left: 10px; margin-right: 5vw;")
           | !{stats.guilds}
-          span.serv(style="margin-left: 4px; font-size: 40%; background: none; color: #fff; font-weight: 200;") serwerów
+          span.serv(style="margin-left: 4px; font-size: 40%; background: none; color: #fff; font-weight: 200;") servers
       div()
         i.fas.fa-users
         span.serv(style="margin-left: 10px")
           | !{stats.users}
-          span.serv(style="margin-left: 4px; font-size: 40%; background: none; color: #fff; font-weight: 200;") użytkowników
+          span.serv(style="margin-left: 4px; font-size: 40%; background: none; color: #fff; font-weight: 200;") users
 
 
   .footer.index-footer
     | © 2021 
-    a.text-danger(href="/support" target="_blank") Diffuse Network
+    a.text-danger(href="/support" target="_blank") Shopp.Monster Network
   script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
   script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous")
   script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous")

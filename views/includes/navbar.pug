@@ -1,5 +1,5 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand(href="/") Bestlist
+  a.navbar-brand(href="/") DisList.Me
   button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
     span.navbar-toggler-icon
   .collapse.navbar-collapse#navbarSupportedContent
@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       li.nav-item
         a.nav-link(href="/servers")
           i.far.fa-hdd
-          |   Serwery
+          |   Servers
       li.nav-item
         a.nav-link(href="/support")
           i.far.fa-question-circle
@@ -26,7 +26,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             if user.admin
               a.dropdown-item(href="/admin") Admin
             a.dropdown-item(href="/dashboard") Dashboard
-            a.dropdown-item(href="/logout") Wyloguj się
+            a.dropdown-item(href="/logout") log out
   else 
     form.my-2.my-lg-0
       ul.navbar-nav.mr-auto       

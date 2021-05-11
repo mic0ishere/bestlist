@@ -7,8 +7,8 @@ module.exports.start = function () {
   bot.once("ready", () => {
     bot.user.setPresence({
       activity: {
-        name: "bestlist.pl",
-        type: "WATCHING",
+        name: "IN DEVELOPMENT MODE",
+        type: "PLAYING",
       },
       status: "online",
     });

@@ -2,7 +2,7 @@ meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
 link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
 link(rel="stylesheet", href="/css/style.css")
-title Bestlist.pl | Panel
+title DisList.Me | Panel
 link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/all.css", integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q", crossorigin="anonymous")
 .app
   include includes/navbar
@@ -22,34 +22,34 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
           p.profile-h-p !{guild.uniqueId.toLowerCase()}
           a.btn.btn-success(type="button", href="/s/" + guild.uniqueId)
             i.far.fa-eye
-            span.pl-1 Strona
+            span.pl-1 Page
         .card.mt
-          | Zaufało nam: 
-          span.serv !{stats.guilds} serwerów
+          | They trusted us: 
+          span.serv !{stats.guilds} servers
           p i 
-            span.serv !{stats.users} użytkowników
+            span.serv !{stats.users} users
       .col-12.col-lg-8
         .card
           form(action='/manage/' + guild.id + '/reset', method='GET', id="delete")
           form(action='/manage/' + guild.id + '/edit', method='GET')
             h6
               i.fas.fa-star-of-life
-              |    Opis serwera
-            p.script Tutaj podaj opis wyświetlany na stronie serwera
+              |    Server description
+            p.script Enter the description displayed on the server page here
               .form-group(style="position: relative;")
                 textarea#long_input.form-control(style="resize: none;", type="text", name="description", placeholder=guild.description, rows="3", maxlength="250")
                 span.field_counter#long_span(style="left: 48vw; top: -4.5vh;")
             h6
               i.fas.fa-star-of-life
-              |    Krótki opis
-            p.script Krótki opis, widoczny na stronie serwerów
+              |    Short description
+            p.script Short description, visible on the servers page
               .form-group(style="position: relative;")
                 input#short_input.form-control(type="text", name="short_description", placeholder=guild.short_description, maxlength="50")
                 span.field_counter#short_span(style="left: 48vw; top: -2.5vh;")
             h6
               i.fas.fa-star-of-life
-              |    Widoczność serwera
-            p.script Możesz wyłączyć bądź włączyć widoczność strony serwera
+              |    Server visibility
+            p.script You can disable or enable the visibility of the server side
               .form-group
                 label.switch
                   if !guild.status
@@ -61,7 +61,7 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor tła
+                |    Background color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -69,7 +69,7 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor Czcionki
+                |    Font color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -77,7 +77,7 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
               br
               h6
                 i.fas.fa-star-of-life
-                |    Drugi kolor czcionki
+                |    Second font color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -85,7 +85,7 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor przycisku
+                |    Button color
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
@@ -93,21 +93,21 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
               br
               h6
                 i.fas.fa-star-of-life
-                |    Kolor Badge
+                |    Color Badge
               //- Daj tekst zeby miec opis funkcji
               p.script
                 .form-group
                   input.form-control.input-color(type="color", name="badgeColor", value=guild.premiumData.badgeColor)
-            button.btn.sub.btn-secondary(type="submit", style="margin-right: 20px; margin-bottom: 10px;") Zapisz
+            button.btn.sub.btn-secondary(type="submit", style="margin-right: 20px; margin-bottom: 10px;") Save
             button.btn.sub.btn-secondary(type="reset", style="margin-right: 20px; margin-bottom: 10px;") Reset
-            button.btn.sub.btn-danger(type="submit", form="delete" style="margin-bottom: 10px;") Usuń serwer
+            button.btn.sub.btn-danger(type="submit", form="delete" style="margin-bottom: 10px;") Delete the server
             
         .card
           //- Add .md to .card -> have padding!
           h6
             i.far.fa-hdd
-            |    Lista serwerów
-          p.script Tutaj możesz zobaczyć swoją listę serwerów
+            |    Server list
+          p.script You can see your server list here
           br
           .row
             each server in guilds
@@ -136,7 +136,7 @@ link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.13.1/css/al
     })
 .footer
     | © 2021 
-    a.text-danger(href="/support" target="_blank") Diffuse Network
+    a.text-danger(href="/support" target="_blank") Shopp.Monster Network
 script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
 script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js", integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN", crossorigin="anonymous")
 script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
