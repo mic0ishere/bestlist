@@ -1,7 +1,8 @@
 {
   "name": "bestlist.pl",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discord Server List",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,8 +10,8 @@
     "dev:watch": "nodemon --exec \"npm run dev\""
   },
   "keywords": [],
-  "author": "Diffuse Network",
-  "license": "MIT",
+  "author": "mic0 @ Diffuse Network",
+  "license": "MPL-2.0",
   "dependencies": {
     "cookies": "^0.8.0",
     "disco-oauth": "^4.2.7",
